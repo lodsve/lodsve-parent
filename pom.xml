@@ -130,6 +130,19 @@
         </developer>
     </developers>
 
+    <!-- issue -->
+    <issueManagement>
+        <system>Github Issue</system>
+        <url>https://github.com/lodsve/lodsve-parent/issues</url>
+    </issueManagement>
+
+    <!-- 代码库 -->
+    <scm>
+        <connection>scm:git:git@github.com:lodsve/lodsve-parent.git</connection>
+        <developerConnection>scm:git:git@github.com:lodsve/lodsve-parent.git</developerConnection>
+        <url>git@github.com:lodsve/lodsve-parent.git</url>
+    </scm>
+
     <!-- 仓库 -->
     <repositories>
         <repository>
