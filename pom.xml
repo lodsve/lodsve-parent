@@ -1,10 +1,27 @@
+<!--
+  ~ Copyright (C) 2019 Sun.Hao(https://www.crazy-coder.cn/)
+  ~
+  ~ This program is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU General Public License as published by
+  ~ the Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  ~
+  ~ This program is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~ GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with this program.  If not, see <http://www.gnu.org/licenses/>.
+  -->
+
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.lodsve</groupId>
     <artifactId>lodsve-parent</artifactId>
-    <version>2</version>
+    <version>3</version>
     <packaging>pom</packaging>
     <name>lodsve parent</name>
     <description>lodsve的父pom，管理所有的依赖</description>
@@ -28,6 +45,9 @@
         <nexus.staging.maven.plugin.version>1.6.5</nexus.staging.maven.plugin.version>
 
         <manifest.built.name>Sun.Hao</manifest.built.name>
+
+        <oss.snapshots.repository.url>https://oss.sonatype.org/content/repositories/snapshots/</oss.snapshots.repository.url>
+        <oss.releases.repository.url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</oss.releases.repository.url>
     </properties>
 
     <organization>
@@ -152,21 +172,6 @@
                     </compilerArgs>
                 </configuration>
             </plugin>
-            <!-- 生成源代码的插件 -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-source-plugin</artifactId>
-                <version>${maven.source.plugin.version}</version>
-                <executions>
-                    <execution>
-                        <id>attach-sources</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>jar</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-clean-plugin</artifactId>
@@ -268,6 +273,21 @@
                             <autoReleaseAfterClose>true</autoReleaseAfterClose>
                         </configuration>
                     </plugin>
+                    <!-- 生成源代码的插件 -->
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-source-plugin</artifactId>
+                        <version>${maven.source.plugin.version}</version>
+                        <executions>
+                            <execution>
+                                <id>attach-sources</id>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>jar</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
                 </plugins>
             </build>
             <!-- 发布仓库 -->
@@ -275,57 +295,13 @@
                 <snapshotRepository>
                     <id>oss-snapshots</id>
                     <name>oss SNAPSHOTS</name>
-                    <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+                    <url>${oss.snapshots.repository.url}</url>
                 </snapshotRepository>
 
                 <repository>
                     <id>oss-releases</id>
                     <name>oss releases</name>
-                    <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
-                </repository>
-            </distributionManagement>
-        </profile>
-        <profile>
-            <id>release-local</id>
-            <build>
-                <plugins>
-                    <!-- 生成javadoc的插件 -->
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-javadoc-plugin</artifactId>
-                        <version>${maven.javadoc.plugin.version}</version>
-                        <executions>
-                            <execution>
-                                <id>attach-javadoc</id>
-                                <phase>package</phase>
-                                <goals>
-                                    <goal>jar</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                        <configuration>
-                            <show>public</show>
-                            <aggregate>true</aggregate>
-                            <charset>${project.build.sourceEncoding}</charset>
-                            <encoding>${project.build.sourceEncoding}</encoding>
-                            <docencoding>${project.build.sourceEncoding}</docencoding>
-                            <additionalparam>-Xdoclint:none</additionalparam>
-                        </configuration>
-                    </plugin>
-                </plugins>
-            </build>
-            <!-- 发布私服 -->
-            <distributionManagement>
-                <snapshotRepository>
-                    <id>local-snapshots</id>
-                    <name>local SNAPSHOTS</name>
-                    <url>https://nexus.lodsve.com:9000/repository/maven-snapshots/</url>
-                </snapshotRepository>
-
-                <repository>
-                    <id>local-releases</id>
-                    <name>local releases</name>
-                    <url>https://nexus.lodsve.com:9000/repository/maven-releases/</url>
+                    <url>${oss.releases.repository.url}</url>
                 </repository>
             </distributionManagement>
         </profile>
