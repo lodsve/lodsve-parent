@@ -1,5 +1,5 @@
 <!--
-  ~ Copyright (C) 2019 Sun.Hao(https://www.crazy-coder.cn/)
+  ~ Copyright (C) 2020 Sun.Hao(https://www.crazy-coder.cn/)
   ~
   ~ This program is free software: you can redistribute it and/or modify
   ~ it under the terms of the GNU General Public License as published by
@@ -21,7 +21,7 @@
 
     <groupId>com.lodsve</groupId>
     <artifactId>lodsve-parent</artifactId>
-    <version>3</version>
+    <version>4</version>
     <packaging>pom</packaging>
     <name>lodsve parent</name>
     <description>lodsve的父pom，管理所有的依赖</description>
@@ -46,8 +46,10 @@
 
         <manifest.built.name>Sun.Hao</manifest.built.name>
 
-        <oss.snapshots.repository.url>https://oss.sonatype.org/content/repositories/snapshots/</oss.snapshots.repository.url>
-        <oss.releases.repository.url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</oss.releases.repository.url>
+        <oss.snapshots.repository.url>https://oss.sonatype.org/content/repositories/snapshots/
+        </oss.snapshots.repository.url>
+        <oss.releases.repository.url>https://oss.sonatype.org/service/local/staging/deploy/maven2/
+        </oss.releases.repository.url>
     </properties>
 
     <organization>
@@ -302,6 +304,16 @@
                     <id>oss-releases</id>
                     <name>oss releases</name>
                     <url>${oss.releases.repository.url}</url>
+                </repository>
+            </distributionManagement>
+        </profile>
+        <profile>
+            <id>release-github</id>
+            <distributionManagement>
+                <repository>
+                    <id>github</id>
+                    <name>GitHub lodsve-parent Packages</name>
+                    <url>https://maven.pkg.github.com/lodsve/lodsve-parent</url>
                 </repository>
             </distributionManagement>
         </profile>
