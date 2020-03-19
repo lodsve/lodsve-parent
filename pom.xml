@@ -21,7 +21,7 @@
 
     <groupId>com.lodsve</groupId>
     <artifactId>lodsve-parent</artifactId>
-    <version>5</version>
+    <version>6</version>
     <packaging>pom</packaging>
     <name>lodsve parent</name>
     <description>lodsve的父pom，管理所有的依赖</description>
@@ -99,7 +99,7 @@
         <repository>
             <id>default-center</id>
             <name>default center</name>
-            <url>http://repo1.maven.org/maven2</url>
+            <url>https://repo1.maven.org/maven2</url>
             <snapshots>
                 <enabled>true</enabled>
             </snapshots>
@@ -107,7 +107,7 @@
         <repository>
             <id>spring-milestones</id>
             <name>Spring Milestones</name>
-            <url>http://repo.spring.io/milestone</url>
+            <url>https://repo.spring.io/milestone</url>
             <snapshots>
                 <enabled>false</enabled>
             </snapshots>
@@ -115,7 +115,7 @@
         <repository>
             <id>spring-snapshots</id>
             <name>Spring Snapshots</name>
-            <url>http://repo.spring.io/snapshot</url>
+            <url>https://repo.spring.io/snapshot</url>
             <snapshots>
                 <enabled>true</enabled>
             </snapshots>
@@ -123,7 +123,7 @@
         <repository>
             <id>jcenter</id>
             <name>jcenter</name>
-            <url>http://jcenter.bintray.com</url>
+            <url>https://jcenter.bintray.com</url>
             <snapshots>
                 <enabled>false</enabled>
             </snapshots>
