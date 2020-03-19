@@ -21,7 +21,7 @@
 
     <groupId>com.lodsve</groupId>
     <artifactId>lodsve-parent</artifactId>
-    <version>4</version>
+    <version>5</version>
     <packaging>pom</packaging>
     <name>lodsve parent</name>
     <description>lodsve的父pom，管理所有的依赖</description>
@@ -50,6 +50,7 @@
         </oss.snapshots.repository.url>
         <oss.releases.repository.url>https://oss.sonatype.org/service/local/staging/deploy/maven2/
         </oss.releases.repository.url>
+        <github.repository.url>https://maven.pkg.github.com/lodsve/lodsve-parent</github.repository.url>
     </properties>
 
     <organization>
@@ -313,7 +314,7 @@
                 <repository>
                     <id>github</id>
                     <name>GitHub lodsve-parent Packages</name>
-                    <url>https://maven.pkg.github.com/lodsve/lodsve-parent</url>
+                    <url>${github.repository.url}</url>
                 </repository>
             </distributionManagement>
         </profile>
